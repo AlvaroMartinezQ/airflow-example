@@ -1,2 +1,7 @@
-# airflow-example
-Build and deploy airflow inside Docker
+```sh
+docker build -t myairflow .
+```
+
+```sh
+docker run -p 8080:8080 -d myairflow
+```
