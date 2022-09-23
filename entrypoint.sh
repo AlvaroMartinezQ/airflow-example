@@ -21,7 +21,7 @@ function init_airflow {
       --role Admin \
       --email admin@admin.com
 
-  # Airdlow parallelism
+  # Airflow parallelism
   echo "Default parallelism set to 4"
   sed -i "s/parallelism = .*/parallelism = 4/" /app/airflow/airflow.cfg
 
