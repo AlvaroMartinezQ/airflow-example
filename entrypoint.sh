@@ -21,14 +21,6 @@ function init_airflow {
       --role Admin \
       --email admin@admin.com
 
-  # Extra vars?
-  if [ -z "$IMPORT_AIRFLOW_VARS" ]
-  then
-      echo "No additional variables will be loaded from a JSON file, IMPORT_AIRFLOW_VARS has not been set."
-  else
-      airflow variables import ${IMPORT_AIRFLOW_VARS}
-  fi
-
   # Airdlow parallelism
   echo "Default parallelism set to 4"
   sed -i "s/parallelism = .*/parallelism = 4/" /app/airflow/airflow.cfg
