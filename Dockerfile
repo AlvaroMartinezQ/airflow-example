@@ -19,7 +19,6 @@ RUN apt-get update && \
     lsb-release \
     sasl2-bin \
     sqlite3 \
-    tini \
     unixodbc
 
 RUN pip3 install \
