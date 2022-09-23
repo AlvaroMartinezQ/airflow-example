@@ -29,14 +29,13 @@ ADD requirements.txt /app
 RUN pip3 install -U -r requirements.txt && \
     rm /app/requirements.txt
 
-RUN mkdir  -p /app/airflow/dags
-ADD dags/* /app/airflow/dags/
-
 COPY entrypoint.sh /entrypoint.sh
 
 RUN chmod 555 /entrypoint.sh && \
-    chmod 777 -R ${AIRFLOW_HOME} && \
-    mkdir -p ${AIRFLOW_HOME}/dags
+    chmod 777 -R ${AIRFLOW_HOME}
+   
+RUN mkdir  -p /app/airflow/dags
+ADD dags/* /app/airflow/dags/
 
 ENTRYPOINT ["/bin/bash", "/entrypoint.sh"]
 USER app
